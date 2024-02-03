@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+</head>
+<body>
+    <h2>Welcome, {{ current_user.username }}!</h2>
+    <p>Your balance: {{ current_user.balance }}</p>
+
+    <!-- Display flashed messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Transaction Form -->
+    <form method="POST" action="{{ url_for('home') }}">
+        <label for="receiver_username">Recipient Username:</label>
+        <input type="text" id="receiver_username" name="receiver_username" required>
+        <br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" min="0" required>
+        <br>
+        <button type="submit">Send Money</button>
+    </form>
+
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+</body>
+</html>

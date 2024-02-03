@@ -1,0 +1,28 @@
+<!-- payment.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Make a Payment</h1>
+    
+    <form id="payment-form">
+        <!-- Display payment errors -->
+        <div id="payment-errors" role="alert"></div>
+
+        <!-- Stripe Elements Placeholder -->
+        <div id="payment-element"></div>
+
+        <!-- Submit button -->
+        <button type="submit">Submit Payment</button>
+    </form>
+
+    <!-- Include the external JavaScript file -->
+    <script src="../gateway/payment.js"></script>
+</body>
+</html>
